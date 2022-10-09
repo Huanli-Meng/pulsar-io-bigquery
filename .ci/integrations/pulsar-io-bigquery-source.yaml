@@ -1,0 +1,25 @@
+name: source-test-bigquery
+className: org.apache.pulsar.ecosystem.io.bigquery.BigQuerySource
+namespace: default
+topicName: source-test-topic
+parallelism: 1
+batchSourceConfig:
+  discoveryTriggererClassName: org.apache.pulsar.ecosystem.io.bigquery.source.BigQueryOnceTrigger
+configs:
+  # projectId is BigQuery project id.
+  #
+  # This field is *required*.
+  #
+  projectId: "bigquery-dev-001"
+
+  # datasetName is BigQuery dataset name.
+  #
+  # This field is *required*.
+  #
+  datasetName: "integration"
+
+  # tableName is BigQuery table name.
+  #
+  # This field is *required*.
+  #
+  tableName: "raw_table"

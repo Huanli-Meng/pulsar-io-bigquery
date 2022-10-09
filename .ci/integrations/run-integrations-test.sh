@@ -33,6 +33,13 @@ eval "${PULSAR_ADMIN} sinks localrun -a ${JAR_PATH} \
         --sink-config-file ${SINK_CONFIG_FILE} \
         -i ${INPUT_TOPIC}"
 
+echo "Run source connector"   
+SOURCE_NAME="source-test-bigquery"   
+SOURCE_CONFIG_FILE="/test-pulsar-io-bigquery/pulsar-io-bigquery-source.yaml"
+eval "${PULSAR_ADMIN} sources localrun -a ${JAR_PATH} \
+        --tenant public --namespace default --name ${SOURCE_NAME} \
+        --source-config-file ${SOURCE_CONFIG_FILE}"        
+
 echo "Waiting for sink and source ..."
 sleep 30
 
